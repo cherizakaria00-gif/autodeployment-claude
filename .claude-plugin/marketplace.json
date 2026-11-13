@@ -3,6 +3,9 @@
   "owner": {
     "name": "Cheri Zakaria"
   },
+  "metadata": {
+    "description": "Safe SSH deploys to your own server from Claude Code, with backups and automatic rollback."
+  },
   "plugins": [
     {
       "name": "autodeployment-claude",
