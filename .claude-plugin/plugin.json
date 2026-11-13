@@ -1,0 +1,11 @@
+{
+  "name": "autodeployment-claude",
+  "version": "1.0.0",
+  "description": "Safe file-level deploys to your own server over SSH from Claude Code: local checks, server backups, drift detection, Laravel + OPcache handling, guarded frontend builds, PM2 restart, health check and automatic rollback.",
+  "author": {
+    "name": "Cheri Zakaria"
+  },
+  "repository": "https://github.com/cherizakaria00-gif/autodeployment-claude",
+  "license": "MIT",
+  "keywords": ["deploy", "ssh", "laravel", "nextjs", "pm2", "rollback"]
+}

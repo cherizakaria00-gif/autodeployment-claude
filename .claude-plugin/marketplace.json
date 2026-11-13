@@ -1,0 +1,13 @@
+{
+  "name": "autodeployment-claude",
+  "owner": {
+    "name": "Cheri Zakaria"
+  },
+  "plugins": [
+    {
+      "name": "autodeployment-claude",
+      "source": "./",
+      "description": "Safe file-level deploys to your own server over SSH, with backups and automatic rollback."
+    }
+  ]
+}

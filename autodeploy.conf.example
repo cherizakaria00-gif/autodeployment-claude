@@ -1,0 +1,32 @@
+# autodeployment-claude configuration
+# Copy to .autodeploy.conf at your project root and fill it in.
+# Add .autodeploy.conf to .gitignore if anything here is private.
+# Paths are relative to the project root unless noted.
+
+# ─── Server ──────────────────────────────────────────────────────────────────
+SSH_HOST="deploy@203.0.113.10"        # user@host — key-based SSH login must already work
+SSH_PORT=22
+SSH_KEY=""                            # optional: path to a private key, e.g. ~/.ssh/id_ed25519
+
+# Absolute path of the project on the server (same layout as your local repo)
+REMOTE_ROOT="/var/www/myapp"
+
+# ─── Backend (Laravel / PHP) — leave BACKEND_DIR empty if you have none ─────
+BACKEND_DIR="backend"                 # folder holding artisan and public/
+PHP_BIN="php"
+OPCACHE_RESET=1                       # reset PHP-FPM OPcache after PHP deploys (needs HEALTH_HOST)
+
+# ─── Frontend (Next.js or any npm build) — leave empty if you have none ─────
+FRONTEND_DIR="frontend"
+BUILD_CMD="npm run build"
+BUILD_OUTPUT_DIR=".next"              # kept aside during the build and restored if it fails
+LOCAL_BUILD=1                         # build locally first; nothing is sent if it fails
+PM2_APP="myapp-web"                   # PM2 process to restart after a successful build
+
+# ─── Health check (run on the server, through your web server) ──────────────
+HEALTH_HOST="example.com"             # your domain, sent as the Host header
+HEALTH_BASE="https://127.0.0.1"       # how the server reaches itself
+HEALTH_PATHS="/ /login"               # space-separated; each must answer 2xx or 3xx
+
+# ─── Backups (on the server) ────────────────────────────────────────────────
+BACKUP_ROOT="~/autodeploy-backups"
